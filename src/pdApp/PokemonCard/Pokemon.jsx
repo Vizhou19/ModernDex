@@ -1,14 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 // * Seperate Files
-import usePokemon from "../../hooks/usePokemon";
-import SearchBar from "../SearchBar/SearchBar";
-// * Custom Hook
 import PokemonStats from "../PokemonStats/PokemonStats";
 
-function Pokemon() {
-  const [nameId, setNameId] = useState("1");
-  const { data } = usePokemon(nameId);
-
+function Pokemon({ data }) {
   if (!data) {
     return <div>Loading...</div>;
   }
@@ -53,7 +47,6 @@ function Pokemon() {
 
   return (
     <div>
-      <SearchBar setNameId={setNameId} />
       <h2>{data.name}</h2>
       <p>ID: {data.id}</p>
 
