@@ -1,16 +1,57 @@
-# React + Vite
+# ModernDex
+Welcome to the ModernDex GitHub Repo. 
+A modern Pokedex built with React, powered by PokeAPI, and smooth animations and the style of a Rotom with the use of AnimeJS.
+Reimagining the iconic Pokedex into the Modern World.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Note: Still In Progress
 
-Currently, two official plugins are available:
+## Table of Contents
+  1. Tech
+  2. Getting Started
+  3. Features
+  4. Logic
+  5. Components
+  6. Credits
+  7. Disclaimer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## Tech
+- Vite + React
+- AnimeJS (In the works)
+- PokeAPI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
+  1. Clone the Repo
+  2. Run `npm install`
+  3. Run `npm run dev`
 
-## Expanding the ESLint configuration
+## Features
+  - Search Pokemon by name or ID
+  - View stats, types, abilites, and cries
+  - Animated stat bars (Soon)
+  - Mobile and Desktop responsive
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Logic
+- Fetches the Data from PokeAPI such as Stats, Name, and Features. Displaying them to the website.
+
+## Components
+
+### Pokemon (Pokemon/Pokemon.jsx)
+The main component that contains the necessary components. Handles the overall layout.
+
+### usePokemon (hooks/usePokemon.js)
+A Custom hook that fetches the data with the use of State and Effect Hooks and returns the Data.
+
+### PokemonStats (PokemonStats/PokemonStats.jsx)
+Maps each pokemon stats and displays the base stats for each Pokemon.
+
+### SearchBar (SearchBar/SearchBar.jsx)
+Handles user input for searching Pokemon by name or id.
+Supports both button and enter key submission.
+
+## Credits
+- [PokeAPI](https://pokeapi.co/)
+
+## Disclaimer
+- Pokemon and all related names are trademarks of by Nintendo / Game Freak. 
+- ModernDex has no asscoiation with Nintendo / Game Freak.
