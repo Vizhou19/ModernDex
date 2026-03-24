@@ -1,12 +1,12 @@
 # ModernDex
 
 Welcome to the ModernDex GitHub Repo.
-A modern Pokedex built with React and powered by PokeAPI.
-Reimagining the iconic Pokedex into the modern world.
+A modern Pokédex built with React and powered by PokeAPI.
+Reimagining the iconic Pokédex into the modern world.
 
 # Note: Still In Progress
 
-## Table of Contents
+## 📖 Table of Contents
 
 1. Tech
 2. Getting Started
@@ -16,38 +16,38 @@ Reimagining the iconic Pokedex into the modern world.
 6. Credits
 7. Disclaimer
 
-## Tech
+## 📦 Tech
 
 - Vite + React
 - AnimeJS
-- PokeAPI
+- PokéAPI
 
-## Getting Started
+## ✅ Getting Started
 
 1. Clone the Repo
 2. Run `npm install`
 3. Run `npm run dev`
 
-## Features
+## ⚙️ Features
 
-- Search Pokemon by name or ID
+- Search Pokémon by name or ID
 - View stats, types, abilites, and cries
 - Animated stat bars (Soon)
 - Mobile and Desktop responsive
 
 ## Logic
 
-- Fetches the data from PokeAPI such as stats, name, and features. Displaying them to the website.
+- Fetches the data from PokéAPI such as stats, name, desc, and types, utilizing custom hooks to grab each data and returns them to the DOM.
 
-## Components
+## 💻 Components
 
-### usePokemon (hooks/usePokemon.js)
+### 🪝 usePokemon (hooks/usePokemon.js)
 
-A Custom hook that fetches the API data with the use of state and effect hooks and returns the data.
+A custom hook that fetches the API data with the use of state and effect hooks and returns the data.
 
-### usePkmnDesc (hooks/usePkmnDesc.js)
+### 🪝 usePkmnDesc (hooks/usePkmnDesc.js)
 
-A Custom hook that grabs and returns both the description and the other forms (Megas, Gmax, etc.) data from the API.
+A custom hook that grabs and returns both the description and the other forms (Megas, Gmax, etc.) data from the API.
 
 ### Pokedex (Pokedex/Pokedex.jsx)
 
@@ -59,18 +59,18 @@ Imports PokemonStats, grabs and return each variables that contains origin, spri
 
 ### PokemonStats (PokemonStats/PokemonStats.jsx)
 
-Maps each pokemon stats and displays the base stats for each Pokemon.
+Maps each pokémon stats and displays the base stats for each pokémon.
 
 ### SearchBar (SearchBar/SearchBar.jsx)
 
-Handles user input for searching Pokemon by name or id.
+Handles user input for searching pokémon by name or id.
 Supports both button and enter key submission.
 
 ## Credits
 
-- [PokeAPI](https://pokeapi.co/)
+- [PokéAPI](https://pokeapi.co/)
 
-## Disclaimer
+## ⚠️ Disclaimer
 
-- Pokemon and all related names are trademarks of Nintendo / Game Freak.
+- Pokémon and all related names are trademarks of Nintendo / Game Freak.
 - ModernDex has no asscoiation with Nintendo / Game Freak.
