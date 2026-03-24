@@ -1,5 +1,4 @@
 import React from "react";
-// * Seperate Files
 import PokemonStats from "../PokemonStats/PokemonStats";
 
 function Pokemon({ data }) {

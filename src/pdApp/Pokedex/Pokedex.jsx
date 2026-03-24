@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Pokemon from "../PokemonCard/Pokemon";
 // * Files
 import SearchBar from "../SearchBar/SearchBar";
+import Pokemon from "../PokemonCard/Pokemon";
 // * Custom Hooks
 import usePokemon from "../../hooks/usePokemon";
 
