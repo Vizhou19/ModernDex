@@ -1,4 +1,3 @@
-// TODO: Make this as a hook tomorrow
 import { useEffect, useState } from "react";
 
 function usePkmnDesc(nameId) {
@@ -12,7 +11,9 @@ function usePkmnDesc(nameId) {
     setIsLoading(true);
     setError(null);
 
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${nameId}`)
+    const baseSpeciesName = nameId.split("-")[0];
+
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${baseSpeciesName}`)
       .then((res) => {
         if (!res.ok) throw new Error("Species not found");
         return res.json();
@@ -31,7 +32,9 @@ function usePkmnDesc(nameId) {
     ?.find((entry) => entry.language.name === "en")
     ?.flavor_text.replace(/\f/g, " ");
 
-  return { speciesData, description, isLoading, error };
+  const varieties = speciesData?.varieties ?? [];
+
+  return { speciesData, varieties, description, isLoading, error };
 }
 
 export default usePkmnDesc;

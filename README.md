@@ -41,17 +41,21 @@ Reimagining the iconic Pokedex into the modern world.
 
 ## Components
 
+### usePokemon (hooks/usePokemon.js)
+
+A Custom hook that fetches the API data with the use of state and effect hooks and returns the data.
+
+### usePkmnDesc (hooks/usePkmnDesc.js)
+
+A Custom hook that grabs and returns both the description and the other forms (Megas, Gmax, etc.) data from the API.
+
 ### Pokedex (Pokedex/Pokedex.jsx)
 
 The main component that contains the necessary components. Handles the overall layout.
 
-### Pokemon (Pokemon/Pokemon.jsx)
+### Pokemon (PokemonCard/Pokemon.jsx)
 
 Imports PokemonStats, grabs and return each variables that contains origin, sprite, types, and cries.
-
-### usePokemon (hooks/usePokemon.js)
-
-A Custom hook that fetches the API data with the use of state and effect hooks and returns the data.
 
 ### PokemonStats (PokemonStats/PokemonStats.jsx)
 
