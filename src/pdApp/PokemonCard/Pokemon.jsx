@@ -9,7 +9,10 @@ function Pokemon({ data }) {
   const origins = (
     <div>
       <h3>Origins:</h3>
-      <p>{data.game_indices?.[0]?.version?.name}</p>
+      <p>
+        {data.game_indices?.[0]?.version.name.charAt(0).toUpperCase() +
+          data.game_indices?.[0]?.version.name.slice(1)}
+      </p>
     </div>
   );
 
@@ -46,7 +49,7 @@ function Pokemon({ data }) {
 
   return (
     <div>
-      <h2>{data.name}</h2>
+      <h2>{data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h2>
       <p>ID: {data.id}</p>
 
       {data.sprites ? sprites : <p>Enter a Pokemon</p>}

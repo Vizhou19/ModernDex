@@ -32,10 +32,10 @@ Reimagining the iconic Pokédex into the modern world.
 
 - Search Pokémon by name or ID
 - View stats, types, abilites, and cries
-- Animated stat bars (Soon)
+- Game-feel like animations
 - Mobile and Desktop responsive
 
-## Logic
+## 🧠 Logic
 
 - Fetches the data from PokéAPI such as stats, name, desc, and types, utilizing custom hooks to grab each data and returns them to the DOM.
 
