@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useRef } from "react";
+// * Files
 import PokemonStats from "../PokemonStats/PokemonStats";
+import PokemonTypes from "../PokemonTypes/PokemonTypes";
+
+import { animate } from "animejs";
 
 function Pokemon({ data }) {
   if (!data) {
     return <div>Loading...</div>;
   }
+
+  const spriteRef = useRef(null);
+
+  const handleSpriteClick = () => {
+    const audio = new Audio(data?.cries?.latest);
+    audio.volume = 0.27;
+    audio.play();
+
+    animate(spriteRef.current, {
+      keyframes: [
+        { translateY: 0 },
+        { translateY: -30 },
+        { translateY: 0 },
+        { translateY: -20 },
+        { translateY: 0 },
+      ],
+      duration: 300,
+      ease: "outInSine",
+    });
+  };
 
   const origins = (
     <div>
@@ -17,33 +41,18 @@ function Pokemon({ data }) {
   );
 
   const sprites = (
-    <div>
-      <h3>Sprites:</h3>
-      <img src={data.sprites?.front_default} alt="sprite" />
+    <div className="sprite-imgs">
+      <img
+        ref={spriteRef}
+        src={data.sprites?.front_default}
+        onClick={handleSpriteClick}
+        alt="sprite"
+        style={{ cursor: "pointer" }}
+      />
       <img
         src={data.sprites?.other["official-artwork"]?.front_default}
         alt="artwork"
       />
-    </div>
-  );
-
-  const types = (
-    <div>
-      <h3>Types:</h3>
-      <ul>
-        {data.types?.map((t) => (
-          <li key={t.slot}>{t.type.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
-
-  const cries = (
-    <div>
-      <h3>Cries:</h3>
-      <audio controls src={data.cries?.latest}>
-        Your browser doesn't support audio
-      </audio>
     </div>
   );
 
@@ -56,9 +65,7 @@ function Pokemon({ data }) {
 
       {data.game_indices?.length > 0 ? origins : <p>Not available</p>}
 
-      {data.types ? types : <p>Go support my stuff</p>}
-
-      {data.cries ? cries : <p>See ya</p>}
+      <PokemonTypes types={data?.types} />
 
       <PokemonStats stats={data?.stats} />
     </div>

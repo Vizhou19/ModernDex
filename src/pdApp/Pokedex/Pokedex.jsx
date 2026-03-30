@@ -8,7 +8,7 @@ import usePokemon from "../../hooks/usePokemon";
 import usePkmnDesc from "../../hooks/usePkmnDesc";
 
 function Pokedex() {
-  const [nameId, setNameId] = useState("487");
+  const [nameId, setNameId] = useState("6");
   const { data } = usePokemon(nameId);
   const { description, varieties } = usePkmnDesc(nameId);
 
