@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 // * Files
 import PokemonStats from "../PokemonStats/PokemonStats";
 import PokemonTypes from "../PokemonTypes/PokemonTypes";
-
+// * AnimeJS
 import { animate } from "animejs";
 
 function Pokemon({ data }) {
@@ -59,7 +59,7 @@ function Pokemon({ data }) {
   return (
     <div>
       <h2>{data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h2>
-      <p>ID: {data.id}</p>
+      <p>#{data.id}</p>
 
       {data.sprites ? sprites : <p>Enter a Pokemon</p>}
 

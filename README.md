@@ -49,22 +49,38 @@ A custom hook that fetches the API data with the use of state and effect hooks a
 
 A custom hook that grabs and returns both the description and the other forms (Megas, Gmax, etc.) data from the API.
 
+### 🪝 useEvolutionChain (hooks/useEvolutionChain.js)
+
+A custom hook that fetches the url and pushes each data that is part of a pokémon's evolution into an array.
+
+### 🎨 typeColors (utils/helpers/typeColors.js)
+
+A variable that contains each color representing each types.
+
 ### Pokedex (Pokedex/Pokedex.jsx)
 
 The main component that contains the necessary components. Handles the overall layout.
 
 ### Pokemon (PokemonCard/Pokemon.jsx)
 
-Imports PokemonStats, grabs and return each variables that contains origin, sprite, types, and cries.
+Imports PokemonStats and PokemonTypes, grabs and return each variables that contains origin, sprite, types, and cries.
 
 ### PokemonStats (PokemonStats/PokemonStats.jsx)
 
 Maps each pokémon stats and displays the base stats for each pokémon.
 
+### PokemonTypes (PokemonTypes/PokemonTypes.jsx)
+
+Imports typeColors.js and maps each pokémon types, styled them, and displays each types.
+
 ### SearchBar (SearchBar/SearchBar.jsx)
 
 Handles user input for searching pokémon by name or id.
 Supports both button and enter key submission.
+
+### EvolutionChain(EvolutionChain/EvolutionChain.jsx)
+
+Fetches the API for each pokémon that is a part of the evolution path and returns them as their own element.
 
 ## Credits
 

@@ -11,7 +11,20 @@ function usePkmnDesc(nameId) {
     setIsLoading(true);
     setError(null);
 
-    const baseSpeciesName = nameId.split("-")[0];
+    const hyphenatedNames = [
+      "mr-mime",
+      "ho-oh",
+      "porygon-z",
+      "mime-jr",
+      "mr-mime",
+      "jangmo-o",
+      "hakamo-o",
+      "kommo-o",
+    ];
+
+    const baseSpeciesName = hyphenatedNames.includes(nameId)
+      ? nameId
+      : nameId.split("-")[0];
 
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${baseSpeciesName}`)
       .then((res) => {
