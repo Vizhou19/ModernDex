@@ -38,7 +38,10 @@ function PokemonStats({ stats }) {
     <div>
       {stats?.map((statObj, index) => (
         <div key={statObj.stat.name}>
-          <span>{statObj.stat.name}</span>
+          <span>
+            {statObj.stat.name.charAt(0).toUpperCase() +
+              statObj.stat.name.slice(1)}
+          </span>
           <div className="stat-track">
             <div
               ref={(el) => (statBarsRef.current[index] = el)}

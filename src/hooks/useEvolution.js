@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function useEvolution(speciesData) {
   const [evoChain, setEvoChain] = useState([]);
@@ -6,20 +6,45 @@ function useEvolution(speciesData) {
   useEffect(() => {
     if (!speciesData?.evolution_chain?.url) return;
 
+    const speciesId = speciesData.id;
+
+    if (speciesId >= 10000) {
+      setEvoChain([]);
+      return;
+    }
+
+    let cancelled = false;
+
     fetch(speciesData.evolution_chain.url)
       .then((res) => res.json())
       .then((data) => {
-        const chain = [];
-        let current = data.chain;
+        if (!cancelled) {
+          const chain = [];
+          let current = data.chain;
 
-        while (current) {
-          chain.push(current.species.name);
-          current = current.evolves_to?.[0] ?? null;
+          while (current) {
+            const speciesName = current.species.name;
+            const speciesUrl = current.species.url;
+
+            const speciesId = speciesUrl.split("/").filter(Boolean).pop();
+
+            chain.push({
+              name: speciesName,
+              id: speciesId,
+            });
+
+            current = current.evolves_to?.[0] ?? null;
+          }
+          setEvoChain(chain);
         }
-
-        setEvoChain(chain);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        if (!cancelled) console.error(err);
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, [speciesData]);
 
   return { evoChain };

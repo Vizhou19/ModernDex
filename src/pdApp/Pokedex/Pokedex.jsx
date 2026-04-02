@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
+// * Custom Hooks
+import usePokemon from "../../hooks/usePokemon";
+import usePkmnDesc from "../../hooks/usePkmnDesc";
+import useEvolution from "../../hooks/useEvolution";
+import useDebounce from "../../hooks/useDebounce";
 // * Files
 import SearchBar from "../SearchBar/SearchBar";
 import Pokemon from "../PokemonCard/Pokemon";
 import FormSwitcher from "../FormSwitcher/FormSwitcher";
 import EvolutionChain from "../EvolutionChain/EvolutionChain";
-// * Custom Hooks
-import usePokemon from "../../hooks/usePokemon";
-import usePkmnDesc from "../../hooks/usePkmnDesc";
-import useEvolution from "../../hooks/useEvolution";
 
 function Pokedex() {
   const [nameId, setNameId] = useState("1");
+  const debouncedId = useDebounce(nameId, 500);
   const { data } = usePokemon(nameId);
-  const { speciesData, description, varieties } = usePkmnDesc(nameId);
+  const { speciesData, description, varieties } = usePkmnDesc(debouncedId);
   const { evoChain } = useEvolution(speciesData);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 // * Files
 import PokemonStats from "../PokemonStats/PokemonStats";
 import PokemonTypes from "../PokemonTypes/PokemonTypes";
