@@ -43,19 +43,19 @@ Reimagining the iconic Pokédex into the modern world.
 
 ### 🪝 usePokemon (hooks/usePokemon.js)
 
-A custom hook that fetches the API data with the use of state and effect hooks and returns the data.
+Fetches the API data with the use of state and effect hooks and returns the data.
 
 ### 🪝 usePkmnDesc (hooks/usePkmnDesc.js)
 
-A custom hook that grabs and returns both the description and the other forms (Megas, Gmax, etc.) data from the API.
+Grabs and returns both the description and the other forms (Megas, Gmax, etc.) data from the API.
 
 ### 🪝 useEvolutionChain (hooks/useEvolutionChain.js)
 
-A custom hook that fetches the url and pushes each data that is part of a pokémon's evolution into an array.
+Fetches the url and pushes each data that is part of a pokémon's evolution into an array.
 
 ### 🎨 typeColors (utils/helpers/typeColors.js)
 
-A variable that contains each color representing each types.
+A dictionary that contains each color representing each types {type: color}.
 
 ### Pokedex (Pokedex/Pokedex.jsx)
 
