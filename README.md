@@ -65,6 +65,10 @@ The main component that contains the necessary components. Handles the overall l
 
 Imports PokemonStats and PokemonTypes, grabs and return each variables that contains origin, sprite, types, and cries.
 
+### PokemonOrigins (PokemonOrigins/PokemonOrigins.jsx)
+
+Gets the first game that the Pokemon Appears.
+
 ### PokemonStats (PokemonStats/PokemonStats.jsx)
 
 Maps each pokémon stats and displays the base stats for each pokémon.
@@ -78,7 +82,7 @@ Imports typeColors.js and maps each pokémon types, styled them, and displays ea
 Handles user input for searching pokémon by name or id.
 Supports both button and enter key submission.
 
-### EvolutionChain(EvolutionChain/EvolutionChain.jsx)
+### EvolutionChain (EvolutionChain/EvolutionChain.jsx)
 
 Fetches the API for each pokémon that is a part of the evolution path and returns them as their own element.
 
