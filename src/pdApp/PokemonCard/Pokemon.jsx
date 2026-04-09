@@ -31,51 +31,38 @@ function Pokemon({ data }) {
     });
   };
 
-  const origins = (
-    <div className="pokedex-right">
-      <h3>Origins:</h3>
-      <p>
-        {data.game_indices?.[0]?.version.name.charAt(0).toUpperCase() +
-          data.game_indices?.[0]?.version.name.slice(1)}
-      </p>
-    </div>
-  );
-
   const sprites = (
-    <div className="pokedex-left">
-      <div className="sprite-imgs">
-        <img
-          ref={spriteRef}
-          src={data.sprites?.front_default}
-          onClick={handleSpriteClick}
-          alt={data?.name}
-          style={{ cursor: "pointer" }}
-          className="pokemon-sprite"
-        />
-        <img
-          src={data.sprites?.other["official-artwork"]?.front_default}
-          alt="artwork"
-          className="pokemon-artwork"
-        />
-      </div>
+    <div className="sprite-imgs">
+      <img
+        ref={spriteRef}
+        src={data.sprites?.front_default}
+        onClick={handleSpriteClick}
+        alt={data?.name}
+        style={{ cursor: "pointer" }}
+        className="pokemon-sprite"
+      />
+      <img
+        src={data.sprites?.other["official-artwork"]?.front_default}
+        alt="artwork"
+        className="pokemon-artwork"
+      />
     </div>
   );
 
   return (
-    <div>
-      <h2 id="pokemon-name">
-        {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
-      </h2>
-      <p id="pokemon-id">#{data.id}</p>
-
-      {data.sprites ? sprites : <p>Enter a Pokemon</p>}
-
-      {data.game_indices?.length > 0 ? origins : <p>Not available</p>}
-
-      <PokemonTypes types={data?.types} />
-
-      <PokemonStats stats={data?.stats} />
-    </div>
+    <section className="pokemon-section">
+      <div className="pokemon-left pokemon-top">
+        <h2 id="pokemon-name">
+          {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
+        </h2>
+        <p id="pokemon-id">#{data.id}</p>
+        {data.sprites ? sprites : <p>Enter a Pokemon</p>}
+      </div>
+      <div className="pokemon-right pokemon-bottom">
+        <PokemonTypes types={data?.types} />
+        <PokemonStats stats={data?.stats} />
+      </div>
+    </section>
   );
 }
 

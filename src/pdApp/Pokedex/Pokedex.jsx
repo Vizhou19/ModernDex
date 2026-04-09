@@ -9,6 +9,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import Pokemon from "../PokemonCard/Pokemon";
 import FormSwitcher from "../FormSwitcher/FormSwitcher";
 import EvolutionChain from "../EvolutionChain/EvolutionChain";
+import PokemonOrigins from "../PokemonOrigins/PokemonOrigins";
 import { typeColors } from "../../utils/helpers/typeColors";
 import "./Pokedex.css";
 
@@ -20,12 +21,15 @@ function Pokedex() {
   const { evoChain } = useEvolution(speciesData);
 
   // * Captializing title and putting the Pokemon on the title
-  useEffect(() => {
-    if (!data) return;
-    const captializedTitle =
-      data.name.charAt(0).toUpperCase() + data.name.slice(1);
-    document.title = `${captializedTitle} Pokédex | ModernDex`;
-  }, [data]);
+  useEffect(
+    function captializeTitle() {
+      if (!data) return;
+      const captializedTitle =
+        data.name.charAt(0).toUpperCase() + data.name.slice(1);
+      document.title = `${captializedTitle} Pokédex | ModernDex`;
+    },
+    [data],
+  );
 
   // * Neon Lights
   const primaryType = data?.types?.[0]?.type?.name;
@@ -65,7 +69,8 @@ function Pokedex() {
       />
       <main className="pokedex-main">
         <Pokemon data={data} />
-        <div className="pokedex-right">
+        <div className="pokedex-right pokedex-bottom">
+          <PokemonOrigins origin={data} />
           <div className="pokemon-desc">
             <h3>Desc:</h3>
             <p>{description}</p>
