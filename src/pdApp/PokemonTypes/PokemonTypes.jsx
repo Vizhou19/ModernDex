@@ -1,4 +1,3 @@
-import React from "react";
 import { typeColors } from "../../utils/helpers/typeColors";
 import "./PokemonTypes.css";
 

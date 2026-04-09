@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { animate } from "animejs";
 import "./PokemonStats.css";
 
@@ -36,6 +36,7 @@ function PokemonStats({ stats }) {
 
   return (
     <div>
+      <h3>Stats:</h3>
       {stats?.map((statObj, index) => (
         <div key={statObj.stat.name}>
           <span>

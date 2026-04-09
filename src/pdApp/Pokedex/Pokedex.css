@@ -1,0 +1,87 @@
+.pokedex {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  min-width: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow:
+    0 0 30px var(--type-color-1),
+    0 0 60px var(--type-color-1) 40;
+}
+
+.pokedex::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 1000px;
+  background-image: url("/src/assets/pokeball.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pokedex > * {
+  position: relative;
+  z-index: 1;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+header h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/*
+
+.pokedex-header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.pokedex-search {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  width: 100%;
+}
+
+.pokedex-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 20px;
+}
+
+.pokedex-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.pokemon-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  padding-left: 16px;
+} */

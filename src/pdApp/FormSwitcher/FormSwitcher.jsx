@@ -1,10 +1,10 @@
-import React from "react";
+import "./FormSwitcher.css";
 
 function FormSwitcher({ varieties, currentForm, onFormChange }) {
   if (varieties.length <= 1) return null;
 
   return (
-    <div>
+    <div className="forms-switcher">
       {varieties.map((variety) => (
         <button
           key={variety.pokemon.name}

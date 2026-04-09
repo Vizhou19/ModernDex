@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import "./SearchBar.css";
 
 function SearchBar({ setNameId }) {
   const [inputValue, setInputValue] = useState("");
@@ -37,8 +38,11 @@ function SearchBar({ setNameId }) {
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyPress}
         placeholder="Search by name or ID..."
+        id="searchbar"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button id="search-button" onClick={handleSearch}>
+        Search
+      </button>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useRef } from "react";
 // * Files
+import "./Pokemon.css";
 import PokemonStats from "../PokemonStats/PokemonStats";
 import PokemonTypes from "../PokemonTypes/PokemonTypes";
 // * AnimeJS
@@ -31,7 +32,7 @@ function Pokemon({ data }) {
   };
 
   const origins = (
-    <div>
+    <div className="pokedex-right">
       <h3>Origins:</h3>
       <p>
         {data.game_indices?.[0]?.version.name.charAt(0).toUpperCase() +
@@ -41,25 +42,31 @@ function Pokemon({ data }) {
   );
 
   const sprites = (
-    <div className="sprite-imgs">
-      <img
-        ref={spriteRef}
-        src={data.sprites?.front_default}
-        onClick={handleSpriteClick}
-        alt="sprite"
-        style={{ cursor: "pointer" }}
-      />
-      <img
-        src={data.sprites?.other["official-artwork"]?.front_default}
-        alt="artwork"
-      />
+    <div className="pokedex-left">
+      <div className="sprite-imgs">
+        <img
+          ref={spriteRef}
+          src={data.sprites?.front_default}
+          onClick={handleSpriteClick}
+          alt={data?.name}
+          style={{ cursor: "pointer" }}
+          className="pokemon-sprite"
+        />
+        <img
+          src={data.sprites?.other["official-artwork"]?.front_default}
+          alt="artwork"
+          className="pokemon-artwork"
+        />
+      </div>
     </div>
   );
 
   return (
     <div>
-      <h2>{data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h2>
-      <p>#{data.id}</p>
+      <h2 id="pokemon-name">
+        {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
+      </h2>
+      <p id="pokemon-id">#{data.id}</p>
 
       {data.sprites ? sprites : <p>Enter a Pokemon</p>}
 
