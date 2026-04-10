@@ -4,8 +4,6 @@ Welcome to the ModernDex GitHub Repo.
 A modern Pokédex built with React and powered by PokeAPI.
 Reimagining the iconic Pokédex into the modern world.
 
-# Note: Still In Progress
-
 ## 📖 Table of Contents
 
 1. Tech
@@ -47,7 +45,7 @@ Fetches the API data with the use of state and effect hooks and returns the data
 
 ### 🪝 usePkmnDesc (hooks/usePkmnDesc.js)
 
-Grabs and returns both the description and the other forms (Megas, Gmax, etc.) data from the API.
+Grabs and returns both the description, gender and the other forms (Megas, Gmax, etc.) data from the API.
 
 ### 🪝 useEvolutionChain (hooks/useEvolutionChain.js)
 
@@ -57,32 +55,36 @@ Fetches the url and pushes each data that is part of a pokémon's evolution into
 
 A dictionary that contains each color representing each types {type: color}.
 
-### Pokedex (Pokedex/Pokedex.jsx)
+### 🖥️ Pokedex (Pokedex/Pokedex.jsx)
 
 The main component that contains the necessary components. Handles the overall layout.
 
-### Pokemon (PokemonCard/Pokemon.jsx)
+### 🎴 Pokemon (PokemonCard/Pokemon.jsx)
 
-Imports PokemonStats and PokemonTypes, grabs and return each variables that contains origin, sprite, types, and cries.
+Returns the pokémon artwork, sprite, cry and Id.
 
-### PokemonOrigins (PokemonOrigins/PokemonOrigins.jsx)
+### 🎮 PokemonOrigins (PokemonOrigins/PokemonOrigins.jsx)
 
 Gets the first game that the pokémon appears.
 
-### PokemonStats (PokemonStats/PokemonStats.jsx)
+### 📊 PokemonStats (PokemonStats/PokemonStats.jsx)
 
 Maps each pokémon stats and displays the base stats for each pokémon.
 
-### PokemonTypes (PokemonTypes/PokemonTypes.jsx)
+### 🎨 PokemonTypes (PokemonTypes/PokemonTypes.jsx)
 
 Imports typeColors.js and maps each pokémon types, styled them, and displays each types.
 
-### SearchBar (SearchBar/SearchBar.jsx)
+### ⚥ PokemonGender (PokemonGender/PokemonGender.jsx)
+
+Displays the gender availability of each pokémon based on the gender_rate field from the species endpoints. Handles four cases: male or female only, genderless, and both genders for pokémon that can be either.
+
+### 🔎 SearchBar (SearchBar/SearchBar.jsx)
 
 Handles user input for searching pokémon by name or id.
 Supports both button and enter key submission.
 
-### EvolutionChain (EvolutionChain/EvolutionChain.jsx)
+### 🧬 EvolutionChain (EvolutionChain/EvolutionChain.jsx)
 
 Fetches the API for each pokémon that is a part of the evolution path and returns them as their own element.
 
