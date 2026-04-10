@@ -34,14 +34,19 @@ function PokemonStats({ stats }) {
     return "#44dd44";
   };
 
+  // * Adds up each stats points together
+  const total =
+    stats?.reduce((sum, statObj) => sum + statObj.base_stat, 0) ?? 0;
+
   return (
-    <div>
+    <div className="stats">
       <h3>Stats:</h3>
       {stats?.map((statObj, index) => (
-        <div key={statObj.stat.name}>
-          <span>
+        <div className="stat-objects" key={statObj.stat.name}>
+          <span className="stat-names">
             {statObj.stat.name.charAt(0).toUpperCase() +
               statObj.stat.name.slice(1)}
+            :
           </span>
           <div className="stat-track">
             <div
@@ -56,6 +61,10 @@ function PokemonStats({ stats }) {
           <span>{statObj.base_stat}</span>
         </div>
       ))}
+      <div className="total-row">
+        <span id="stat-name">Total:</span>
+        <span id="stat-value">{total}</span>
+      </div>
     </div>
   );
 }

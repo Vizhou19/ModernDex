@@ -47,7 +47,14 @@ function usePkmnDesc(nameId) {
 
   const varieties = speciesData?.varieties ?? [];
 
-  return { speciesData, varieties, description, isLoading, error };
+  return {
+    speciesData,
+    varieties,
+    description,
+    isLoading,
+    error,
+    genderRate: speciesData?.gender_rate,
+  };
 }
 
 export default usePkmnDesc;

@@ -1,8 +1,6 @@
 import { useRef } from "react";
 // * Files
 import "./Pokemon.css";
-import PokemonStats from "../PokemonStats/PokemonStats";
-import PokemonTypes from "../PokemonTypes/PokemonTypes";
 // * AnimeJS
 import { animate } from "animejs";
 
@@ -50,7 +48,7 @@ function Pokemon({ data }) {
   );
 
   return (
-    <section className="pokemon-section">
+    <div className="pokemon-section">
       <div className="pokemon-left pokemon-top">
         <h2 id="pokemon-name">
           {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
@@ -58,11 +56,7 @@ function Pokemon({ data }) {
         <p id="pokemon-id">#{data.id}</p>
         {data.sprites ? sprites : <p>Enter a Pokemon</p>}
       </div>
-      <div className="pokemon-right pokemon-bottom">
-        <PokemonTypes types={data?.types} />
-        <PokemonStats stats={data?.stats} />
-      </div>
-    </section>
+    </div>
   );
 }
 

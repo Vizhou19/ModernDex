@@ -10,6 +10,9 @@ import Pokemon from "../PokemonCard/Pokemon";
 import FormSwitcher from "../FormSwitcher/FormSwitcher";
 import EvolutionChain from "../EvolutionChain/EvolutionChain";
 import PokemonOrigins from "../PokemonOrigins/PokemonOrigins";
+import PokemonGender from "../PokemonGender/PokemonGender";
+import PokemonStats from "../PokemonStats/PokemonStats";
+import PokemonTypes from "../PokemonTypes/PokemonTypes";
 import { typeColors } from "../../utils/helpers/typeColors";
 import "./Pokedex.css";
 
@@ -17,7 +20,8 @@ function Pokedex() {
   const [nameId, setNameId] = useState("6");
   const debouncedId = useDebounce(nameId, 500);
   const { data } = usePokemon(nameId);
-  const { speciesData, description, varieties } = usePkmnDesc(debouncedId);
+  const { speciesData, description, varieties, genderRate } =
+    usePkmnDesc(debouncedId);
   const { evoChain } = useEvolution(speciesData);
 
   // * Captializing title and putting the Pokemon on the title
@@ -40,18 +44,22 @@ function Pokedex() {
     ? typeColors[secondaryType]
     : primaryColor;
 
-  useEffect(() => {
-    if (primaryColor) {
-      document.documentElement.style.setProperty(
-        "--type-color-1",
-        primaryColor,
-      );
-      document.documentElement.style.setProperty(
-        "--type-color-2",
-        secondaryColor,
-      );
-    }
-  }, [primaryColor, secondaryColor]);
+  // * add typesColor to the background
+  useEffect(
+    function addTypeColorsToBG() {
+      if (primaryColor) {
+        document.documentElement.style.setProperty(
+          "--type-color-1",
+          primaryColor,
+        );
+        document.documentElement.style.setProperty(
+          "--type-color-2",
+          secondaryColor,
+        );
+      }
+    },
+    [primaryColor, secondaryColor],
+  );
 
   return (
     <div className="pokedex">
@@ -68,16 +76,25 @@ function Pokedex() {
         onFormChange={setNameId}
       />
       <main className="pokedex-main">
-        <Pokemon data={data} />
-        <div className="pokedex-right pokedex-bottom">
-          <PokemonOrigins origin={data} />
-          <div className="pokemon-desc">
-            <h3>Desc:</h3>
-            <p>{description}</p>
-          </div>
-          <h3>Evolution:</h3>
-          <EvolutionChain evoChain={evoChain} onPokemonClick={setNameId} />
+        <div className="pokedex-info">
+          <section className="pokedex-left pokedex-top-mobile">
+            <Pokemon data={data} />
+          </section>
+          <section className="pokedex-right pokedex-bottom-mobile">
+            <PokemonTypes types={data?.types} />
+            <PokemonOrigins origin={data} />
+            <PokemonGender genderRate={genderRate} />
+            <div className="pokemon-desc">
+              <h3>Desc:</h3>
+              <p>{description}</p>
+            </div>
+            <h3>Evolution:</h3>
+            <EvolutionChain evoChain={evoChain} onPokemonClick={setNameId} />
+          </section>
         </div>
+        <section className="pokedex-bottom pokedex-bottom-mobile">
+          <PokemonStats stats={data?.stats} />
+        </section>
       </main>
     </div>
   );

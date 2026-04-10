@@ -67,7 +67,7 @@ Imports PokemonStats and PokemonTypes, grabs and return each variables that cont
 
 ### PokemonOrigins (PokemonOrigins/PokemonOrigins.jsx)
 
-Gets the first game that the Pokemon Appears.
+Gets the first game that the pokémon appears.
 
 ### PokemonStats (PokemonStats/PokemonStats.jsx)
 

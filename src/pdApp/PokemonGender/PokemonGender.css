@@ -1,0 +1,35 @@
+.pokemon-gender {
+  /* * Gender Colors */
+  --male-gender: #0d50ec;
+  --female-gender: #ff5286;
+  --genderless: rgb(172, 167, 167);
+  /* * Rest of the code */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 5px auto;
+  gap: 7.5px;
+}
+
+#male {
+  background-color: var(--male-gender);
+}
+
+#female {
+  background-color: var(--female-gender);
+}
+
+#genderless {
+  background-color: var(--genderless);
+}
+
+#male,
+#female,
+#genderless {
+  color: white;
+  padding: 2px 7px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
