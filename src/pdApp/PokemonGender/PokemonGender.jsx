@@ -64,12 +64,7 @@ function PokemonGender({ genderRate }) {
     );
   };
 
-  return (
-    <div className="pokemon-gender">
-      <h3>Genders:</h3>
-      {getGender()}
-    </div>
-  );
+  return <div className="pokemon-gender">{getGender()}</div>;
 }
 
 export default PokemonGender;

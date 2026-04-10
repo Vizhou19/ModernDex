@@ -35,7 +35,7 @@ Reimagining the iconic Pokédex into the modern world.
 
 ## 🧠 Logic
 
-- Fetches the data from PokéAPI such as stats, name, desc, and types, utilizing custom hooks to grab each data and returns them to the DOM.
+- Fetches the data from PokéAPI such as stats, name, desc, types, evoultions, genders, and origins, utilizing custom hooks to grab each data and returns them to the DOM.
 
 ## 💻 Components
 
@@ -50,6 +50,10 @@ Grabs and returns both the description, gender and the other forms (Megas, Gmax,
 ### 🪝 useEvolutionChain (hooks/useEvolutionChain.js)
 
 Fetches the url and pushes each data that is part of a pokémon's evolution into an array.
+
+### ⏱️useDebounce (hooks/useDebounce.js)
+
+Creates a timeout delay to let the API properly send out the data without causing a 404 errors.
 
 ### 🎨 typeColors (utils/helpers/typeColors.js)
 

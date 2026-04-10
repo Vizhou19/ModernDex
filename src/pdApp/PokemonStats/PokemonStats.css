@@ -40,9 +40,13 @@
 
 .total-row {
   display: flex;
-  justify-content: center;
-  width: 60px;
-  text-align: right;
+  justify-content: flex-end;
+  width: 1150px;
+  margin-top: 10px;
   font-size: 0.85rem;
   gap: 5px;
+}
+
+#total {
+  font-weight: bold;
 }

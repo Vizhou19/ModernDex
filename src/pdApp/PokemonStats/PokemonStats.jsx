@@ -62,8 +62,8 @@ function PokemonStats({ stats }) {
         </div>
       ))}
       <div className="total-row">
-        <span id="stat-name">Total:</span>
-        <span id="stat-value">{total}</span>
+        <span id="total">Total:</span>
+        <span id="total-value">{total}</span>
       </div>
     </div>
   );

@@ -65,7 +65,7 @@ function Pokedex() {
     <div className="pokedex">
       <header className="pokedex-header">
         <h1>ModernDex</h1>
-        <p>Powered by PokeAPI</p>
+        <p>Powered by PokéAPI</p>
       </header>
       <nav className="pokedex-search">
         <SearchBar setNameId={setNameId} />
@@ -78,24 +78,40 @@ function Pokedex() {
       <main className="pokedex-main">
         <div className="pokedex-info">
           <section className="pokedex-left pokedex-top-mobile">
-            <Pokemon data={data} />
+            <div className="glass-card">
+              <Pokemon data={data} />
+            </div>
           </section>
           <section className="pokedex-right pokedex-bottom-mobile">
-            <PokemonTypes types={data?.types} />
-            <PokemonOrigins origin={data} />
-            <PokemonGender genderRate={genderRate} />
-            <div className="pokemon-desc">
+            <div className="glass-card">
+              <h3>Types:</h3>
+              <PokemonTypes types={data?.types} />
+            </div>
+            <div className="glass-card">
+              <h3>Origins:</h3>
+              <PokemonOrigins origin={data} />
+            </div>
+            <div className="glass-card">
+              <h3>Genders:</h3>
+              <PokemonGender genderRate={genderRate} />
+            </div>
+            <div className="pokemon-desc glass-card">
               <h3>Desc:</h3>
               <p>{description}</p>
             </div>
-            <h3>Evolution:</h3>
-            <EvolutionChain evoChain={evoChain} onPokemonClick={setNameId} />
+            <div className="pokemon-evo glass-card">
+              <h3>Evolution:</h3>
+              <EvolutionChain evoChain={evoChain} onPokemonClick={setNameId} />
+            </div>
           </section>
         </div>
-        <section className="pokedex-bottom pokedex-bottom-mobile">
+        <section className="pokedex-bottom glass-card pokedex-bottom-mobile">
           <PokemonStats stats={data?.stats} />
         </section>
       </main>
+      <footer>
+        <h3>Pokémon images & names © 1995-2026 Nintendo/Game Freak. </h3>
+      </footer>
     </div>
   );
 }
