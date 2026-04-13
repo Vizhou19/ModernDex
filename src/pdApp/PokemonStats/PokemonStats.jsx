@@ -43,7 +43,7 @@ function PokemonStats({ stats }) {
       <h3>Stats:</h3>
       {stats?.map((statObj, index) => (
         <div className="stat-objects" key={statObj.stat.name}>
-          <span className="stat-names">
+          <span className="stats-name">
             {statObj.stat.name.charAt(0).toUpperCase() +
               statObj.stat.name.slice(1)}
             :
@@ -58,7 +58,7 @@ function PokemonStats({ stats }) {
               }}
             />
           </div>
-          <span>{statObj.base_stat}</span>
+          <span className="stats-total">{statObj.base_stat}</span>
         </div>
       ))}
       <div className="total-row">

@@ -64,7 +64,10 @@ function Pokedex() {
   return (
     <div className="pokedex">
       <header className="pokedex-header">
-        <h1>ModernDex</h1>
+        <div className="title">
+          <h1>ModernDex</h1>
+          <h6 id="version">V1.0</h6>
+        </div>
         <p>Powered by PokéAPI</p>
       </header>
       <nav className="pokedex-search">

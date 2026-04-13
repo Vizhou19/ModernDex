@@ -16,9 +16,10 @@
   width: 120px;
   min-width: 120px;
   text-align: right;
-  padding-right: 10px;
-  font-size: 0.85rem;
+  padding-right: 5px;
+  font-size: 0.9rem;
   white-space: nowrap;
+  font-weight: bolder;
 }
 
 .stat-track {
@@ -36,6 +37,10 @@
   align-items: center;
   height: 100%;
   width: 0%;
+}
+
+.stats-total {
+  font-weight: bold;
 }
 
 .total-row {
