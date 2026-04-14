@@ -50,9 +50,7 @@ function Pokemon({ data }) {
   return (
     <div className="pokemon-section">
       <div className="pokemon-left pokemon-top">
-        <h2 id="pokemon-name">
-          {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
-        </h2>
+        <h2 id="pokemon-name">{data.name}</h2>
         <p id="pokemon-id">#{data.id}</p>
         {data.sprites ? sprites : <p>Enter a Pokemon</p>}
       </div>

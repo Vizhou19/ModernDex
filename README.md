@@ -1,18 +1,25 @@
+<div align="center">
+
 # ModernDex
 
 Welcome to the ModernDex GitHub Repo.
 A modern Pokédex built with React and powered by PokeAPI.
 Reimagining the iconic Pokédex into the modern world.
 
+![ModernDex Screenshot](./src/assets/Screenshot%202026-04-13%20223617.png)
+![ModernDex Screenshot](./src/assets/Screenshot%202026-04-13%20223634.png)
+
+</div>
+
 ## 📖 Table of Contents
 
-1. Tech
-2. Getting Started
-3. Features
-4. Logic
-5. Components
-6. Credits
-7. Disclaimer
+1. [Tech](#-tech)
+2. [Getting Started](#-getting-started)
+3. [Features](#️-features)
+4. [Logic](#-logic)
+5. [Components](#-components)
+6. [Credits](#credits)
+7. [Disclaimer](#️-disclaimer)
 
 ## 📦 Tech
 
@@ -59,6 +66,12 @@ Creates a timeout delay to let the API properly send out the data without causin
 
 A dictionary that contains each color representing each types {type: color}.
 
+### 🎨 originColors (utils/helpers/typeColors.js)
+
+A dictionary that contains each color representing each games of origin {origin: color}
+
+Note: PokéAPI's game_indices doesn't covering newer games (From Gen 6 to so forth), This file will be updated once PokéAPI expands game_indices.
+
 ### 🖥️ Pokedex (Pokedex/Pokedex.jsx)
 
 The main component that contains the necessary components. Handles the overall layout.
@@ -69,7 +82,7 @@ Returns the pokémon artwork, sprite, cry and Id.
 
 ### 🎮 PokemonOrigins (PokemonOrigins/PokemonOrigins.jsx)
 
-Gets the first game that the pokémon appears.
+Imports originColors.js and Gets the first two games that the pokémon appears and map each origin with their respective colors.
 
 ### 📊 PokemonStats (PokemonStats/PokemonStats.jsx)
 
