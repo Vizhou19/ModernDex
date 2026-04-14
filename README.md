@@ -1,6 +1,6 @@
 <div align="center">
 
-# ModernDex
+# ModernDex V1.0
 
 Welcome to the ModernDex GitHub Repo.
 A modern Pokédex built with React and powered by PokeAPI.
@@ -113,3 +113,5 @@ Fetches the API for each pokémon that is a part of the evolution path and retur
 
 - Pokémon and all related names are trademarks of Nintendo / Game Freak.
 - ModernDex has no asscoiation with Nintendo / Game Freak.
+
+[Back to top](#moderndex-v10)
