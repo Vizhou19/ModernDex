@@ -2,6 +2,7 @@
   "name": "pokedex",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://vizhou19.github.io/ModernDex/",
   "type": "module",
   "scripts": {
     "dev": "vite",
