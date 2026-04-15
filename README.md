@@ -1,13 +1,13 @@
 <div align="center">
 
-# ModernDex V1.0
+# ModernDex V1.1
 
 Welcome to the ModernDex GitHub Repo.
 A modern Pokédex built with React and powered by PokeAPI.
 Reimagining the iconic Pokédex into the modern world.
 
-![ModernDex Screenshot](./src/assets/Screenshot%202026-04-13%20223617.png)
-![ModernDex Screenshot](./src/assets/Screenshot%202026-04-13%20223634.png)
+![ModernDex Screenshot](./src/assets/Screenshot%202026-04-15%20164410.png)
+![ModernDex Screenshot](./src/assets/Screenshot%202026-04-15%20164440.png)
 
 </div>
 
@@ -26,6 +26,7 @@ Reimagining the iconic Pokédex into the modern world.
 - Vite + React
 - AnimeJS
 - PokéAPI
+- Tanstack / React Query
 
 ## ✅ Getting Started
 
@@ -36,23 +37,23 @@ Reimagining the iconic Pokédex into the modern world.
 ## ⚙️ Features
 
 - Search Pokémon by name or ID
-- View stats, types, abilites, and cries
+- View stats, pkmn info, evolutions
 - Game-feel like animations
 - Mobile and Desktop responsive
 
 ## 🧠 Logic
 
-- Fetches the data from PokéAPI such as stats, name, desc, types, evoultions, genders, and origins, utilizing custom hooks to grab each data and returns them to the DOM.
+- Fetches the data from PokéAPI such as stats, name, desc, types, evoultions, genders, and origins, using React Query and utilizing custom hooks to grab each data and returns them to the DOM.
 
 ## 💻 Components
 
 ### 🪝 usePokemon (hooks/usePokemon.js)
 
-Fetches the API data with the use of state and effect hooks and returns the data.
+Fetches and stores the API data with the use of React Query and returns the data.
 
 ### 🪝 usePkmnDesc (hooks/usePkmnDesc.js)
 
-Grabs and returns both the description, gender and the other forms (Megas, Gmax, etc.) data from the API.
+Fetches and returns both the description, gender and the other forms (Megas, Gmax, etc.) data from the API and save the data via React Query.
 
 ### 🪝 useEvolutionChain (hooks/useEvolutionChain.js)
 

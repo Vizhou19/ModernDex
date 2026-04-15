@@ -37,12 +37,12 @@ function Pokemon({ data }) {
         onClick={handleSpriteClick}
         alt={data?.name}
         style={{ cursor: "pointer" }}
-        className="pokemon-sprite"
+        id="pokemon-sprite"
       />
       <img
         src={data.sprites?.other["official-artwork"]?.front_default}
         alt="artwork"
-        className="pokemon-artwork"
+        id="pokemon-artwork"
       />
     </div>
   );

@@ -15,5 +15,5 @@ export const originColors = {
   pearl: "#EAE0C8",
   black: "#252323",
   white: "#f5f3f0",
-  "": "#7e7d7b",
+  "omega-ruby": "#ff0505",
 };

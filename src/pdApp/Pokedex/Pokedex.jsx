@@ -14,14 +14,16 @@ import PokemonGender from "../PokemonGender/PokemonGender";
 import PokemonStats from "../PokemonStats/PokemonStats";
 import PokemonTypes from "../PokemonTypes/PokemonTypes";
 import { typeColors } from "../../utils/helpers/typeColors";
+// * Styles and Fonts
 import "./Pokedex.css";
+import "@fontsource/saira-stencil-one"; // * Title
+import "@fontsource-variable/outfit"; // * Secondary
 
 function Pokedex() {
   const [nameId, setNameId] = useState("6");
-  const debouncedId = useDebounce(nameId, 500);
+  const debouncedId = useDebounce(nameId, 400);
   const { data } = usePokemon(nameId);
-  const { speciesData, description, varieties, genderRate } =
-    usePkmnDesc(debouncedId);
+  const { speciesData, desc, varieties, genderRate } = usePkmnDesc(debouncedId);
   const { evoChain } = useEvolution(speciesData);
 
   // * Captializing title and putting the Pokemon on the title
@@ -66,7 +68,7 @@ function Pokedex() {
       <header className="pokedex-header">
         <div className="title">
           <h1>ModernDex</h1>
-          <h6 id="version">V1.0</h6>
+          <h6 id="version">V1.1</h6>
         </div>
         <p>Powered by PokéAPI</p>
       </header>
@@ -100,7 +102,7 @@ function Pokedex() {
             </div>
             <div className="pokemon-desc glass-card">
               <h3>Desc:</h3>
-              <p>{description}</p>
+              <p>{desc}</p>
             </div>
             <div className="pokemon-evo glass-card">
               <h3>Evolution:</h3>

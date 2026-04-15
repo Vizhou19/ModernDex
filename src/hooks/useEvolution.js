@@ -1,51 +1,32 @@
-import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchEvoChain = async (url) => {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("Evolution chain not found");
+  return res.json();
+};
 
 function useEvolution(speciesData) {
-  const [evoChain, setEvoChain] = useState([]);
+  const evoUrl = speciesData?.evolution_chain?.url;
+  const isAltForm = speciesData?.id >= 10000;
 
-  useEffect(() => {
-    if (!speciesData?.evolution_chain?.url) return;
+  const { data } = useQuery({
+    queryKey: ["evolution", evoUrl],
+    queryFn: () => fetchEvoChain(evoUrl),
+    enabled: !!evoUrl && !isAltForm,
+  });
 
-    const speciesId = speciesData.id;
+  const evoChain = [];
 
-    if (speciesId >= 10000) {
-      setEvoChain([]);
-      return;
+  if (data) {
+    let current = data.chain;
+    while (current) {
+      const speciesUrl = current.species.url;
+      const id = speciesUrl.split("/").filter(Boolean).pop();
+      evoChain.push({ name: current.species.name, id });
+      current = current.evolves_to?.[0] ?? null;
     }
-
-    let cancelled = false;
-
-    fetch(speciesData.evolution_chain.url)
-      .then((res) => res.json())
-      .then((data) => {
-        if (!cancelled) {
-          const chain = [];
-          let current = data.chain;
-
-          while (current) {
-            const speciesName = current.species.name;
-            const speciesUrl = current.species.url;
-
-            const speciesId = speciesUrl.split("/").filter(Boolean).pop();
-
-            chain.push({
-              name: speciesName,
-              id: speciesId,
-            });
-
-            current = current.evolves_to?.[0] ?? null;
-          }
-          setEvoChain(chain);
-        }
-      })
-      .catch((err) => {
-        if (!cancelled) console.error(err);
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [speciesData]);
+  }
 
   return { evoChain };
 }
