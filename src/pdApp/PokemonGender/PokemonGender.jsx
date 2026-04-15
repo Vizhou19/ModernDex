@@ -50,16 +50,32 @@ function PokemonGender({ genderRate }) {
       </svg>
     );
     if (genderRate === -1) {
-      return <span id="genderless">{genderless} Genderless</span>;
+      return (
+        <span className="gender-badge" id="genderless">
+          {genderless} Genderless
+        </span>
+      );
     } else if (genderRate === 0) {
-      return <span id="male">{male} Male</span>;
+      return (
+        <span className="gender-badge" id="male">
+          {male} Male
+        </span>
+      );
     } else if (genderRate === 8) {
-      return <span id="female">{female} Female</span>;
+      return (
+        <span className="gender-badge" id="female">
+          {female} Female
+        </span>
+      );
     }
     return (
       <>
-        <span id="male">{male} Male</span>
-        <span id="female">{female} Female</span>
+        <span className="gender-badge" id="male">
+          {male} Male
+        </span>
+        <span className="gender-badge" id="female">
+          {female} Female
+        </span>
       </>
     );
   };

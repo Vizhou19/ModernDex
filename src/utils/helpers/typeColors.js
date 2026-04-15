@@ -8,7 +8,7 @@ export const typeColors = {
   fighting: "#C03028",
   poison: "#A040A0",
   ground: "#E0C068",
-  flying: "#CFE2F3",
+  flying: "#a3b5c5",
   psychic: "#f85888",
   bug: "#a8b820",
   rock: "#9e8d3e",

@@ -21,7 +21,7 @@ import "@fontsource-variable/outfit"; // * Secondary
 
 function Pokedex() {
   const [nameId, setNameId] = useState("6");
-  const debouncedId = useDebounce(nameId, 300);
+  const debouncedId = useDebounce(nameId, 200);
   const { data } = usePokemon(nameId);
   const { speciesData, desc, varieties, genderRate } = usePkmnDesc(debouncedId);
   const { evoChain } = useEvolution(speciesData);
@@ -68,9 +68,9 @@ function Pokedex() {
       <header className="pokedex-header">
         <div className="title">
           <h1>ModernDex</h1>
-          <h6 id="version">V1.1</h6>
+          <p id="version">V1.1</p>
         </div>
-        <p>Powered by PokéAPI</p>
+        <p id="power">Powered by PokéAPI</p>
       </header>
       <nav className="pokedex-search">
         <SearchBar setNameId={setNameId} />

@@ -40,7 +40,7 @@ function SearchBar({ setNameId }) {
         placeholder="Search by name or ID..."
         id="searchbar"
       />
-      <button id="search-button" onClick={handleSearch}>
+      <button id="search-button" onClick={handleSearch} aria-label="search">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
