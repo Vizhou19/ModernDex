@@ -14,6 +14,7 @@ import PokemonGender from "../PokemonGender/PokemonGender";
 import PokemonStats from "../PokemonStats/PokemonStats";
 import PokemonTypes from "../PokemonTypes/PokemonTypes";
 import { typeColors } from "../../utils/helpers/typeColors";
+import Skeleton from "../Skeleton/Skeleton";
 // * Styles and Fonts
 import "./Pokedex.css";
 import "@fontsource/saira-stencil-one"; // * Title
@@ -22,7 +23,7 @@ import "@fontsource-variable/outfit"; // * Secondary
 function Pokedex() {
   const [nameId, setNameId] = useState("6");
   const debouncedId = useDebounce(nameId, 500);
-  const { data } = usePokemon(nameId);
+  const { data, isLoading } = usePokemon(nameId);
   const { speciesData, desc, varieties, genderRate } = usePkmnDesc(debouncedId);
   const { evoChain } = useEvolution(speciesData);
 
@@ -63,7 +64,7 @@ function Pokedex() {
     [primaryColor, secondaryColor],
   );
 
-  return (
+  /* return (
     <div className="pokedex">
       <header className="pokedex-header">
         <div className="title">
@@ -117,6 +118,83 @@ function Pokedex() {
       <footer>
         <h3>Pokémon images & names © 1995-2026 Nintendo/Game Freak. </h3>
       </footer>
+    </div>
+  ); */
+
+  return (
+    <div className="pokedex">
+      <header className="pokedex-header">
+        <div className="title">
+          <h1>ModernDex</h1>
+          <p id="version">V1.1</p>
+        </div>
+        <p id="power">Powered by PokéAPI</p>
+      </header>
+      <nav className="pokedex-search">
+        <SearchBar setNameId={setNameId} />
+      </nav>
+      <FormSwitcher
+        varieties={varieties}
+        currentForm={nameId}
+        onFormChange={setNameId}
+      />
+      <main className="pokedex-main">
+        <div className="pokedex-info">
+          {isLoading ? (
+            <div className="pokedex-left pokedex-top-mobile glass-card">
+              <Skeleton width="300px" height="300px" borderRadius="16px" />
+            </div>
+          ) : (
+            <section className="pokedex-left pokedex-top-mobile">
+              <div className="glass-card">
+                <Pokemon data={data} />
+              </div>
+            </section>
+          )}
+          {isLoading ? (
+            <div className="pokedex-right pokedex-bottom-mobile glass-card">
+              <Skeleton width="200px" height="40px" />
+              <Skeleton width="80px" height="24px" />
+              <Skeleton width="" height="80px" />
+            </div>
+          ) : (
+            <section className="pokedex-right pokedex-bottom-mobile">
+              <div className="glass-card">
+                <h3>Types:</h3>
+                <PokemonTypes types={data?.types} />
+              </div>
+              <div className="glass-card">
+                <h3>Origins:</h3>
+                <PokemonOrigins origin={data} />
+              </div>
+              <div className="glass-card">
+                <h3>Genders:</h3>
+                <PokemonGender genderRate={genderRate} />
+              </div>
+              <div className="pokemon-desc glass-card">
+                <h3>Desc:</h3>
+                <p>{desc}</p>
+              </div>
+              <div className="pokemon-evo glass-card">
+                <h3>Evolution:</h3>
+                <EvolutionChain
+                  evoChain={evoChain}
+                  onPokemonClick={setNameId}
+                />
+              </div>
+            </section>
+          )}
+        </div>
+        {isLoading ? (
+          <div className="glass-card">
+            <Skeleton width="100%" height={200} />
+          </div>
+        ) : (
+          <section className="pokedex-bottom glass-card pokedex-bottom-mobile">
+            <PokemonStats stats={data?.stats} />
+          </section>
+        )}
+      </main>
     </div>
   );
 }

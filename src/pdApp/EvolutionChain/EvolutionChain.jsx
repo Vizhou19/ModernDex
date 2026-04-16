@@ -15,7 +15,13 @@ function EvolutionChain({ evoChain, onPokemonClick }) {
             onClick={() => onPokemonClick(name.name)}
             style={{ cursor: "pointer" }}
           >
-            <img src={getSpriteUrl(name.id)} alt={name.name} />
+            <img
+              src={getSpriteUrl(name.id)}
+              alt={name.name}
+              fetchPriority="high"
+              width={80}
+              height={80}
+            />
             <span>{name.name}</span>
           </div>
           {index < evoChain.length - 1 && (

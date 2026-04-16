@@ -42,6 +42,7 @@ function Pokemon({ data }) {
         width={80}
         height={80}
         fetchPriority="high"
+        className="skeleton"
       />
       <img
         src={data.sprites?.other["official-artwork"]?.front_default}
@@ -50,6 +51,7 @@ function Pokemon({ data }) {
         width={420}
         height={420}
         fetchPriority="high"
+        className="skeleton"
       />
     </div>
   );
