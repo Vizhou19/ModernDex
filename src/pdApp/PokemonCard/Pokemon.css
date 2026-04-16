@@ -1,9 +1,20 @@
-.pokemon-artwork {
+.sprite-imgs {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#pokemon-artwork {
   width: 100%;
   max-width: 380px;
   height: auto;
   filter: drop-shadow(0 0 20px var(--type-color-1));
   transition: filter 0.8s ease;
+  object-fit: contain;
 }
 
 #pokemon-name {
@@ -22,5 +33,6 @@
 
 #pokemon-sprite {
   position: relative;
-  top: 10px;
+  top: 45px;
+  z-index: 1;
 }

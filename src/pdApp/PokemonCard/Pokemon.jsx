@@ -39,6 +39,8 @@ function Pokemon({ data }) {
         style={{ cursor: "pointer" }}
         id="pokemon-sprite"
         loading="lazy"
+        width={80}
+        height={80}
       />
       <img
         src={data.sprites?.other["official-artwork"]?.front_default}
