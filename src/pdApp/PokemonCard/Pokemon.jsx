@@ -48,6 +48,7 @@ function Pokemon({ data }) {
         id="pokemon-artwork"
         width={420}
         height={420}
+        fetchPriority="high"
       />
     </div>
   );
