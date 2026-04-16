@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 
 async function fetchPokemon(nameId) {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${nameId}`, {
     headers: {
-      "Cache-Control": "max-age=3600", // * Tells the browser to keep it for an hour.
+      "Cache-Control": "max-age=2592000", // * Tells the browser to keep it for a day.
     },
   });
   if (!res.ok) throw new Error("Pokemon not found");
@@ -15,6 +15,7 @@ function usePokemon(nameId) {
     queryKey: ["pokemon", nameId],
     queryFn: () => fetchPokemon(nameId),
     enabled: !!nameId && nameId.trim() !== "",
+    staleTime: Infinity,
   });
 
   return { data, isLoading, error };
