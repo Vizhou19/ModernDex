@@ -41,6 +41,7 @@ function Pokemon({ data }) {
         loading="lazy"
         width={80}
         height={80}
+        fetchPriority="high"
       />
       <img
         src={data.sprites?.other["official-artwork"]?.front_default}

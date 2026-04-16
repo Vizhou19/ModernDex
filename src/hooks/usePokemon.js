@@ -15,7 +15,6 @@ function usePokemon(nameId) {
     queryKey: ["pokemon", nameId],
     queryFn: () => fetchPokemon(nameId),
     enabled: !!nameId && nameId.trim() !== "",
-    staleTime: Infinity,
   });
 
   return { data, isLoading, error };

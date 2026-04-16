@@ -21,7 +21,7 @@ import "@fontsource-variable/outfit"; // * Secondary
 
 function Pokedex() {
   const [nameId, setNameId] = useState("6");
-  const debouncedId = useDebounce(nameId, 150);
+  const debouncedId = useDebounce(nameId, 500);
   const { data } = usePokemon(nameId);
   const { speciesData, desc, varieties, genderRate } = usePkmnDesc(debouncedId);
   const { evoChain } = useEvolution(speciesData);
