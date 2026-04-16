@@ -38,11 +38,14 @@ function Pokemon({ data }) {
         alt={data?.name}
         style={{ cursor: "pointer" }}
         id="pokemon-sprite"
+        loading="lazy"
       />
       <img
         src={data.sprites?.other["official-artwork"]?.front_default}
         alt="artwork"
         id="pokemon-artwork"
+        width={420}
+        height={420}
       />
     </div>
   );
