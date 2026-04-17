@@ -98,9 +98,11 @@ function Pokedex() {
           )}
           {isLoading ? (
             <div className="pokedex-right pokedex-bottom-mobile glass-card">
-              <Skeleton width="200px" height="40px" />
-              <Skeleton width="80px" height="24px" />
-              <Skeleton width="" height="80px" />
+              <Skeleton width="660px" height="87px" />
+              <Skeleton width="660px" height="87px" />
+              <Skeleton width="660px" height="87px" />
+              <Skeleton width="660px" height="75px" />
+              <Skeleton width="660px" height="150px" />
             </div>
           ) : (
             <section className="pokedex-right pokedex-bottom-mobile">

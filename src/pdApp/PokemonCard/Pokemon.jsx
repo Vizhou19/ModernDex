@@ -47,8 +47,8 @@ function Pokemon({ data }) {
         src={data.sprites?.other["official-artwork"]?.front_default}
         alt="artwork"
         id="pokemon-artwork"
-        width={420}
-        height={420}
+        width={380}
+        height={380}
         fetchPriority="high"
         className="skeleton"
       />

@@ -32,6 +32,7 @@ function usePkmnDesc(nameId) {
     queryKey: ["species", nameId],
     queryFn: () => fetchPkmnSpecies(nameId),
     enabled: !!nameId && nameId.trim() !== "",
+    staleTime: Infinity,
   });
 
   const desc = speciesData?.flavor_text_entries

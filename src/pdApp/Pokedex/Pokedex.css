@@ -79,6 +79,10 @@ header p {
   font-size: 2em;
 }
 
+.pokedex-left .glass-card {
+  padding-bottom: 75px;
+}
+
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);

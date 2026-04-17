@@ -15,6 +15,7 @@
   filter: drop-shadow(0 0 20px var(--type-color-1));
   transition: filter 0.8s ease;
   object-fit: contain;
+  aspect-ratio: inherit;
 }
 
 #pokemon-name {
@@ -35,4 +36,5 @@
   position: relative;
   top: 45px;
   z-index: 1;
+  aspect-ratio: inherit;
 }
