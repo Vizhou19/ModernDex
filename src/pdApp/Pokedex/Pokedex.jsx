@@ -64,63 +64,6 @@ function Pokedex() {
     [primaryColor, secondaryColor],
   );
 
-  /* return (
-    <div className="pokedex">
-      <header className="pokedex-header">
-        <div className="title">
-          <h1>ModernDex</h1>
-          <p id="version">V1.1</p>
-        </div>
-        <p id="power">Powered by PokéAPI</p>
-      </header>
-      <nav className="pokedex-search">
-        <SearchBar setNameId={setNameId} />
-      </nav>
-      <FormSwitcher
-        varieties={varieties}
-        currentForm={nameId}
-        onFormChange={setNameId}
-      />
-      <main className="pokedex-main">
-        <div className="pokedex-info">
-          <section className="pokedex-left pokedex-top-mobile">
-            <div className="glass-card">
-              <Pokemon data={data} />
-            </div>
-          </section>
-          <section className="pokedex-right pokedex-bottom-mobile">
-            <div className="glass-card">
-              <h3>Types:</h3>
-              <PokemonTypes types={data?.types} />
-            </div>
-            <div className="glass-card">
-              <h3>Origins:</h3>
-              <PokemonOrigins origin={data} />
-            </div>
-            <div className="glass-card">
-              <h3>Genders:</h3>
-              <PokemonGender genderRate={genderRate} />
-            </div>
-            <div className="pokemon-desc glass-card">
-              <h3>Desc:</h3>
-              <p>{desc}</p>
-            </div>
-            <div className="pokemon-evo glass-card">
-              <h3>Evolution:</h3>
-              <EvolutionChain evoChain={evoChain} onPokemonClick={setNameId} />
-            </div>
-          </section>
-        </div>
-        <section className="pokedex-bottom glass-card pokedex-bottom-mobile">
-          <PokemonStats stats={data?.stats} />
-        </section>
-      </main>
-      <footer>
-        <h3>Pokémon images & names © 1995-2026 Nintendo/Game Freak. </h3>
-      </footer>
-    </div>
-  ); */
-
   return (
     <div className="pokedex">
       <header className="pokedex-header">
@@ -133,11 +76,13 @@ function Pokedex() {
       <nav className="pokedex-search">
         <SearchBar setNameId={setNameId} />
       </nav>
-      <FormSwitcher
-        varieties={varieties}
-        currentForm={nameId}
-        onFormChange={setNameId}
-      />
+      <div className="forms">
+        <FormSwitcher
+          varieties={varieties}
+          currentForm={nameId}
+          onFormChange={setNameId}
+        />
+      </div>
       <main className="pokedex-main">
         <div className="pokedex-info">
           {isLoading ? (

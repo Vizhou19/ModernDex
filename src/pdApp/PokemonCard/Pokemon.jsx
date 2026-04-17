@@ -38,7 +38,6 @@ function Pokemon({ data }) {
         alt={data?.name}
         style={{ cursor: "pointer" }}
         id="pokemon-sprite"
-        loading="lazy"
         width={80}
         height={80}
         fetchPriority="high"

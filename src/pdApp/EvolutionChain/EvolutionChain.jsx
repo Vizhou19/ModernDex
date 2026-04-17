@@ -18,9 +18,9 @@ function EvolutionChain({ evoChain, onPokemonClick }) {
             <img
               src={getSpriteUrl(name.id)}
               alt={name.name}
-              fetchPriority="high"
               width={80}
               height={80}
+              loading="lazy"
             />
             <span>{name.name}</span>
           </div>

@@ -14,6 +14,7 @@ function useEvolution(speciesData) {
     queryKey: ["evolution", evoUrl],
     queryFn: () => fetchEvoChain(evoUrl),
     enabled: !!evoUrl && !isAltForm,
+    staleTime: Infinity,
   });
 
   const evoChain = [];
