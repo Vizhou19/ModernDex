@@ -13,17 +13,19 @@ import PokemonOrigins from "../PokemonOrigins/PokemonOrigins";
 import PokemonGender from "../PokemonGender/PokemonGender";
 import PokemonStats from "../PokemonStats/PokemonStats";
 import PokemonTypes from "../PokemonTypes/PokemonTypes";
+import SideButtons from "../SideButtons/SideButtons";
 import { typeColors } from "../../utils/helpers/typeColors";
 import Skeleton from "../Skeleton/Skeleton";
 // * Styles and Fonts
 import "./Pokedex.css";
-import "@fontsource/saira-stencil-one"; // * Title
+import "@fontsource/press-start-2p"; // * Title
 import "@fontsource-variable/outfit"; // * Secondary
 
 function Pokedex() {
-  const [nameId, setNameId] = useState("6");
-  const debouncedId = useDebounce(nameId, 500);
-  const { data, isLoading } = usePokemon(nameId);
+  const [nameId, setNameId] = useState(6);
+  const stringId = nameId.toString();
+  const debouncedId = useDebounce(stringId, 500);
+  const { data, isLoading } = usePokemon(stringId);
   const { speciesData, desc, varieties, genderRate } = usePkmnDesc(debouncedId);
   const { evoChain } = useEvolution(speciesData);
 
@@ -69,9 +71,18 @@ function Pokedex() {
       <header className="pokedex-header">
         <div className="title">
           <h1>ModernDex</h1>
-          <p id="version">V1.1</p>
+          <p id="version">V1.2</p>
         </div>
-        <p id="power">Powered by PokéAPI</p>
+        <p id="power">
+          Powered by{" "}
+          <a
+            href="https://pokeapi.co/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            PokéAPI
+          </a>
+        </p>
       </header>
       <nav className="pokedex-search">
         <SearchBar setNameId={setNameId} />
@@ -85,17 +96,23 @@ function Pokedex() {
       </div>
       <main className="pokedex-main">
         <div className="pokedex-info">
-          {isLoading ? (
-            <div className="pokedex-left pokedex-top-mobile glass-card">
-              <Skeleton width="300px" height="300px" borderRadius="16px" />
-            </div>
-          ) : (
-            <section className="pokedex-left pokedex-top-mobile">
-              <div className="glass-card">
-                <Pokemon data={data} />
-              </div>
-            </section>
-          )}
+          <section className="pokedex-left pokedex-top-mobile">
+            <SideButtons
+              nameId={nameId}
+              speciesId={speciesData?.id}
+              setNameId={setNameId}
+            >
+              {isLoading ? (
+                <div className="glass-card">
+                  <Skeleton width="300px" height="300px" borderRadius="16px" />
+                </div>
+              ) : (
+                <div className="glass-card">
+                  <Pokemon data={data} />
+                </div>
+              )}
+            </SideButtons>
+          </section>
           {isLoading ? (
             <div className="pokedex-right pokedex-bottom-mobile glass-card">
               <Skeleton width="660px" height="87px" />
@@ -137,8 +154,10 @@ function Pokedex() {
             <Skeleton width="100%" height={200} />
           </div>
         ) : (
-          <section className="pokedex-bottom glass-card pokedex-bottom-mobile">
-            <PokemonStats stats={data?.stats} />
+          <section className="pokedex-bottom pokedex-bottom-mobile">
+            <div className="glass-card">
+              <PokemonStats stats={data?.stats} />
+            </div>
           </section>
         )}
       </main>

@@ -13,7 +13,7 @@ function Pokemon({ data }) {
 
   const handleSpriteClick = () => {
     const audio = new Audio(data?.cries?.latest);
-    audio.volume = 0.27;
+    audio.volume = 0.45;
     audio.play();
 
     animate(spriteRef.current, {

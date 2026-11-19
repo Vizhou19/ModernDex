@@ -5,6 +5,12 @@
   gap: 5px;
 }
 
-button {
+.form-button {
+  font-family: "Outfit Variable", sans-serif;
   text-transform: capitalize;
+  background-color: gray;
+}
+.form-button.active {
+  background-color: white;
+  color: black;
 }

@@ -23,8 +23,8 @@ body {
   background: linear-gradient(
     to bottom,
     var(--type-color-1) 0%,
-    #0a0a0a 40%,
-    #0a0a0a 60%,
+    #000000 40%,
+    #000000 60%,
     var(--type-color-2) 100%
   );
   transition: background 0.8s ease;

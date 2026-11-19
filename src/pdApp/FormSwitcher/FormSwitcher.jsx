@@ -1,17 +1,21 @@
+import { formatPokemonName } from "../../utils/helpers/formatPokemon";
 import "./FormSwitcher.css";
 
 function FormSwitcher({ varieties, currentForm, onFormChange }) {
-  if (varieties.length <= 1) return null;
+  if (!varieties || varieties.length <= 1) return null;
 
   return (
     <div className="forms-switcher">
       {varieties.map((variety) => (
         <button
           key={variety.pokemon.name}
-          className={currentForm === variety.pokemon.name ? "active" : ""}
+          className={[
+            "form-button",
+            currentForm === variety.pokemon.name ? "active" : "",
+          ].join(" ")}
           onClick={() => onFormChange(variety.pokemon.name)}
         >
-          {variety.pokemon.name}
+          {formatPokemonName(variety.pokemon.name)}
         </button>
       ))}
     </div>

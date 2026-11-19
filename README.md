@@ -1,6 +1,6 @@
 <div align="center">
 
-# ModernDex V1.1
+# ModernDex V1.3
 
 Welcome to the ModernDex GitHub Repo.
 A modern Pokédex built with React and powered by PokeAPI.
@@ -71,7 +71,7 @@ A dictionary that contains each color representing each types {type: color}.
 
 A dictionary that contains each color representing each games of origin {origin: color}
 
-Note: PokéAPI's game_indices doesn't covering newer games (From Gen 6 to so forth), This file will be updated once PokéAPI expands game_indices.
+Note: PokéAPI's game_indices doesn't covering newer games (From Gen 8 to so forth), This file will be updated once PokéAPI expands game_indices.
 
 ### 🖥️ Pokedex (Pokedex/Pokedex.jsx)
 
@@ -105,6 +105,10 @@ Supports both button and enter key submission.
 ### 🧬 EvolutionChain (EvolutionChain/EvolutionChain.jsx)
 
 Fetches the API for each pokémon that is a part of the evolution path and returns them as their own element.
+
+### 💀 Skeleton (Skeleton/Skeleton.jsx)
+
+If the data doesn't load, then multiple Skeleton components will temporary be added in place of the main components until the data is loaded. To prevent a high CLS (Cumulative Layout Shift).
 
 ## Credits
 
